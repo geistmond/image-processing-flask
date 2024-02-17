@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Face Detection</title>
+
+<head>
+</head>
+
+<body>
+  <div id="upload">
+    <h1>Upload an Image</h1>
+    <form action="/upload">
+        <input type="file" id="image" name="image">
+        <input type="submit" value="Upload">
+    </form>
+  </div>
+  {% if img %}
+  <div id="result">
+    <h1>Face Recoginition Result</h1>
+    <img src=img />
+  </div>
+  {% else %}
+  <div id="result">
+    <h1>Face Recognition</h1>
+    <p>Please choose an image to upload.</p>
+  </div>
+  {% endif %}
+</body>
