@@ -20,6 +20,7 @@ from io import BytesIO
 
 # For handling images encoded as base64 strings.
 import base64
+import secrets
 
 
 
@@ -262,10 +263,9 @@ def imgfile_from_string(img_str: str, writefile=False):
     buffered = BytesIO(decoded_image)
     if writefile:
         from secrets import token_urlsafe
-        from random import randint
         from PIL import Image
         # Generate random filename and debug print it to console
-        rand_filename = token_urlsafe(randint(8,16)) + ".jpg"
+        rand_filename = token_urlsafe(secrets.SystemRandom().randint(8,16)) + ".jpg"
         ic("Random filename: ", rand_filename)
         # Put the image data from the buffer into the PIL Image object
         img = Image.open(buffered)
